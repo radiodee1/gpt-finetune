@@ -37,11 +37,11 @@ for (var i = 0; i <= 10; i ++) {
   const ii01 = `${start_name}dot_${name}_01.png`;
   console.log(ii00, ii01);
 
-  get_ascii(ii00, i, 0);
-  get_ascii(ii01, i, 1);
+  get_ascii(ii00, i);
+  get_ascii(ii01, i);
 }
 
-function get_ascii( filename, index_1, index_2 ) {
+function get_ascii( filename, index_1 ) {
   asciify(
     filename,
     {
@@ -78,7 +78,7 @@ function write_corpus(text, index_1, i) {
   });
 
   var jtext = `{"text":"${text}\n${text_out[i]}${index_1}\n\n", "meta":{"pile_set_name":"Count"}}`;
-  jtext = jtext.replace("/\n/g", "\u000D");
+  //jtext = jtext.replace("/\n/g", "\u000D");
   jtext = JSON.stringify(jtext);
 
   if (jtext.startsWith("\"")) {
@@ -88,7 +88,7 @@ function write_corpus(text, index_1, i) {
     jtext = jtext.slice(0, jtext.length - 1);
   }
   
-  jtext = jtext.replace(`/\\\"/g`,`"`);
+  //jtext = jtext.replace(`/\\\"/g`,`"`);
 
   console.log(jtext);
   fs.appendFileSync("../../corpus.00.jsonl", jtext + "\n", (err) => {
