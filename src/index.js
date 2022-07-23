@@ -71,8 +71,8 @@ function get_ascii( filename, index_1 ) {
 }
 
 function write_corpus(text, index_1, i) {
-  console.log(text + "\n");
-  console.log(text_out[i] + index_1);
+  //console.log(text + "\n");
+  //console.log(text_out[i] + index_1);
   fs.appendFileSync("./corpus.00.txt", text + "\n" + text_out[i] + index_1 + "\n\n", (err) => {
     if (err) {
       return console.log(err);
@@ -84,7 +84,7 @@ function write_corpus(text, index_1, i) {
   //jtext = jtext.replace("/\n/g", "\u000D");
   jtext = JSON.stringify(jtext);
 
-  console.log(jtext);
+  //console.log(jtext);
   fs.appendFileSync("./corpus.00.jsonl", jtext + "\n", (err) => {
     if (err) {
       return console.log(err);
