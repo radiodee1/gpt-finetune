@@ -80,25 +80,13 @@ function write_corpus(text, index_1, i) {
   var jtext = {"text":`${text}\n${text_out[i]}${index_1}\n`, "meta":{"pile_set_name":"Count"}};
   //jtext = jtext.replace("/\n/g", "\u000D");
   jtext = JSON.stringify(jtext);
-  /*
-  if (jtext.startsWith("\"")) {
-    jtext = jtext.slice(1);
-  }
-  if (jtext.endsWith("\"")) {
-    jtext = jtext.slice(0, jtext.length - 1);
-  }
-  */ 
-  //jtext = jtext.replace(`/\\\"/g`,`"`);
 
   console.log(jtext);
-  fs.appendFileSync("../../corpus.00.jsonl", jtext + "\n", (err) => {
+  fs.appendFileSync("./corpus.00.jsonl", jtext + "\n", (err) => {
     if (err) {
       return console.log(err);
     }
     console.log("complete");
   });
-
-
-
 
 }
