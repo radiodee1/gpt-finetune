@@ -28,6 +28,9 @@ else {
   start_name = arg_list[0].trim()
 }
 
+fs.writeFileSync('./corpus.00.jsonl', '', function(){console.log('done')});
+fs.writeFileSync('./corpus.00.txt', '', function(){console.log('done')});
+
 for (var i = 0; i <= 10; i ++) {
   var j = "0000" + i;
   var l = j.length;
