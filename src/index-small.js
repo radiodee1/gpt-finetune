@@ -16,7 +16,20 @@ const text_out = {
   1: "Count the dots. I see ",
   2: "Human: How many dots are there?\nJane: there are ",
   3: "Tell me how many items are in the picture. There are ",
-  4: "Count? There are "
+  4: `Human: Hi?
+Jane: Hello there.
+
+Human: Do you like candy?
+Jane: Yes I like candy.
+
+Human: What is your favorite color?
+Jane: My favorite color is blue.
+
+Human: How old are you?
+Jane: I am 21 years old.
+
+Human: Count? 
+Jane: There are `
 }
 
 var start_name = "";
