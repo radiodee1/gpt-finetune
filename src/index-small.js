@@ -86,14 +86,17 @@ function get_ascii( filename, index_1 ) {
 function write_corpus(text, index_1, i) {
   //console.log(text + "\n");
   //console.log(text_out[i] + index_1);
-  fs.appendFileSync("./corpus.00.txt", text + "\n" + text_out[i] + index_1 + "\n<|endoftext|>\n", (err) => {
+  
+  const label = "counting";
+  
+  fs.appendFileSync("./corpus.00.txt", label + "\n" +  text + "\n" + text_out[i] + index_1 + "\n<|endoftext|>\n", (err) => {
     if (err) {
       return console.log(err);
     }
     console.log("complete");
   });
 
-  var jtext = {"text":`${text}\n${text_out[i]}${index_1}\n`, "meta":{"pile_set_name":"Count"}};
+  var jtext = {"text":`${label}\n${text}\n${text_out[i]}${index_1}\n`, "meta":{"pile_set_name":"Count"}};
   //jtext = jtext.replace("/\n/g", "\u000D");
   jtext = JSON.stringify(jtext);
 
