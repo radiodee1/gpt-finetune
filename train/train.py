@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 
+import os 
 from happytransformer import HappyGeneration, GENTrainArgs
 #--------------------------------------#
+path = os.environ.get("GPT_ETC_CHECKPOINT")
+print(path)
 
-happy_gen = HappyGeneration( model_type="GPT-NEO", model_name="EleutherAI/gpt-neo-125M", load_path="../../model_checkpoint/" )  # default uses gpt2
+
+happy_gen = HappyGeneration( model_type="GPT-NEO", model_name="EleutherAI/gpt-neo-125M", load_path=path )  # default uses gpt2
 #args = GENSettings(max_length=15)
 args = GENTrainArgs(num_train_epochs=1) 
 
@@ -13,4 +17,4 @@ args = GENTrainArgs(num_train_epochs=1)
 
 happy_gen.train("../src/corpus.00.txt", args=args);
 
-happy_gen.save("../../model_checkpoint/")
+happy_gen.save(path)
