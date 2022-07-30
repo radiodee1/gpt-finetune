@@ -25,9 +25,6 @@ Jane: Yes I like candy.
 Human: What is your favorite color?
 Jane: My favorite color is blue.
 
-Human: How old are you?
-Jane: I am 21 years old.
-
 Human: Count? 
 Jane: There are `
 }
