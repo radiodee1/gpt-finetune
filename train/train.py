@@ -19,8 +19,6 @@ if len(sys.argv) == 2:
     epochs = int(sys.argv[1])
     #print(epochs)
     #exit()
-else:
-    epochs = 5
 
 print(epochs)
 
