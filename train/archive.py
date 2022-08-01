@@ -22,4 +22,4 @@ shutil.make_archive(description, format="zip", root_dir=path)
 source = path + "/" + description + ".zip"
 destination = path + "/../" + description + ".zip"
 
-shutil.move(source, destination)
+os.replace(source, destination)
