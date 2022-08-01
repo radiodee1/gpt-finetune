@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys 
 import os 
 from happytransformer import HappyGeneration, GENTrainArgs, GENEvalArgs
 #--------------------------------------#
@@ -12,11 +13,20 @@ if len(description) == 0:
     description = "EleutherAI/gpt-neo-125M"
 print(description)
 
+epochs = 5
 
+if len(sys.argv) == 2:
+    epochs = int(sys.argv[1])
+    #print(epochs)
+    #exit()
+else:
+    epochs = 5
+
+print(epochs)
 
 happy_gen = HappyGeneration( model_type="GPT-NEO", model_name=description, load_path=path )  # default uses gpt2
 #args = GENSettings(max_length=15)
-args = GENTrainArgs(num_train_epochs=5) 
+args = GENTrainArgs(num_train_epochs=epochs) 
 
 #happy_gen = HappyGeneration(load_path=path)  
 eval_args = GENEvalArgs(preprocessing_processes=2)
